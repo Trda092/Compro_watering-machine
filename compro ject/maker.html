@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        html {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            font-size: 100%;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 1em;
+        }
+
+
+        /* Switch starts here */
+        .rocker {
+            display: inline-block;
+            position: relative;
+            /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            color: #888;
+            width: 7em;
+            height: 4em;
+            overflow: hidden;
+            border-bottom: 0.5em solid #eee;
+        }
+
+        .rocker-small {
+            font-size: 0.75em;
+            /* Sizes the switch */
+            margin: 1em;
+        }
+
+        .rocker::before {
+            content: "";
+            position: absolute;
+            top: 0.5em;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #999;
+            border: 0.5em solid #eee;
+            border-bottom: 0;
+        }
+
+        .rocker input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .switch-left,
+        .switch-right {
+            cursor: pointer;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.5em;
+            width: 3em;
+            transition: 0.2s;
+        }
+
+        .switch-left {
+            height: 2.4em;
+            width: 2.75em;
+            left: 0.85em;
+            bottom: 0.4em;
+            background-color: #ddd;
+            transform: rotate(15deg) skewX(15deg);
+        }
+
+        .switch-right {
+            right: 0.5em;
+            bottom: 0;
+            background-color: #bd5757;
+            color: #fff;
+        }
+
+        .switch-left::before,
+        .switch-right::before {
+            content: "";
+            position: absolute;
+            width: 0.4em;
+            height: 2.45em;
+            bottom: -0.45em;
+            background-color: #ccc;
+            transform: skewY(-65deg);
+        }
+
+        .switch-left::before {
+            left: -0.4em;
+        }
+
+        .switch-right::before {
+            right: -0.375em;
+            background-color: transparent;
+            transform: skewY(65deg);
+        }
+
+        input:checked+.switch-left {
+            background-color: #0084d0;
+            color: #fff;
+            bottom: 0px;
+            left: 0.5em;
+            height: 2.5em;
+            width: 3em;
+            transform: rotate(0deg) skewX(0deg);
+        }
+
+        input:checked+.switch-left::before {
+            background-color: transparent;
+            width: 3.0833em;
+        }
+
+        input:checked+.switch-left+.switch-right {
+            background-color: #ddd;
+            color: #888;
+            bottom: 0.4em;
+            right: 0.8em;
+            height: 2.4em;
+            width: 2.75em;
+            transform: rotate(-15deg) skewX(-15deg);
+        }
+
+        input:checked+.switch-left+.switch-right::before {
+            background-color: #ccc;
+        }
+
+        /* Keyboard Users */
+        input:focus+.switch-left {
+            color: #333;
+        }
+
+        input:checked:focus+.switch-left {
+            color: #fff;
+        }
+
+        input:focus+.switch-left+.switch-right {
+            color: #fff;
+        }
+
+        input:checked:focus+.switch-left+.switch-right {
+            color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2389da;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="compro.html">HOME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Trda092/Compro_watering-machine">Github</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="document.html">Document</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="video.html">Video</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="maker.html">Control</a>
+        </li>
+      </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCWt9DfgW7TocaM9OsCrHQn1ExOHWJEZKI",
+            authDomain: "project-a0edb.firebaseapp.com",
+            databaseURL: "https://project-a0edb-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "project-a0edb",
+            storageBucket: "project-a0edb.appspot.com",
+            messagingSenderId: "570965813584",
+            appId: "1:570965813584:web:52e729c284168e67612455",
+            measurementId: "G-SWCV91M1FZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        let obj = {
+            status: 0,
+        };
+        firebase.database().ref("user").update(obj);
+
+    </script>
+    <div class="mid">
+
+        <label class="rocker">
+            <input type="checkbox">
+            <span class="switch-left" onclick="start()">On</span>
+            <span class="switch-right" onclick="start()">Off</span>
+        </label>
+
+
+    </div>
+    <script>
+        var check = 0;
+        function start() {
+            if (!check) {
+                check = 1;
+                let obj = {
+                    status: 1,
+                };
+                firebase.database().ref("user").update(obj);
+            } else {
+                check = 0;
+                let obj = {
+                    status: 0,
+                };
+                firebase.database().ref("user").update(obj);
+            }
+        }
+        firebase.database().ref("user").on("value", (sanpshot) => {
+            check = sanpshot.val().status;
+            console.log(check);
+        });
+    </script>
+</body>
+
+</html>
