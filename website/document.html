@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    .doc{
+      transform: translatey(30px);
+      }
+    </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2389da;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="compro.html">HOME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Trda092/Compro_watering-machine">Github</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="document.html">Document</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="video.html">Video</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="maker.html">Control</a>
+        </li>
+      </ul>
+        </div>
+        </div>
+    </nav>
+    <center><div class="doc">
+    <h3>Abstract</h3>
+    <h6>เนื่องจากหลายๆคนนั้น นิยมปลูกต้นไม้เล็กๆในห้อง แล้วบางครั้งเราอาจจะลืมรดน้ำต้นไม้เหล่านั้น</h6>
+    <h6>พวกเราจึงได้คิดค้นอุปกรณ์สำหรับรดน้ำต้นไม้ที่ควบคุมได้ผ่าน internet โดยสร้างจาก micro controller </h6>
+    <h6>มินิโปรเจ็คนี้จึงได้ระบบการควบคุมการรดน้ำต้นไม้ เพื่อความสะดวกสบายของผู้ที่ดูแลต้นไม้</h6>
+    <br>
+    <h3>Method</h3>
+    <h6>หลักการทำงานของระบบนี้ จะทำงานผ่านหน้าเว็บที่ใช้ควบคุม Controller ที่พัฒนาจาก Software arduino</h6>
+    <h6>ให้ไปควบคุมส่วนของมอเตอร์ที่จะปล่อยน้ำอีกทีหนึ่งโดยลิงค์ข้อมูลที่เชื่อมกับ Database ของ Firebase</h6>
+    <br>
+    <h6>ตัวอย่างการต่อบอร์ดที่จะใช้งาน</h6>
+    <img src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/186250818_835507927384361_4422284700436342460_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeGP2Nv21AzVMQ0doDDejBNwbg2sIO8Y80ZuDawg7xjzRgm0Zg2ilV_BCvfrh2jMM8t_8FqvTvsMJO45TIMw-nn7&_nc_ohc=MwrSEa2WBl0AX_47fFY&_nc_ht=scontent.fbkk5-6.fna&oh=b7cdee556851ec67d251af6601f4b65f&oe=60C5402A" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <h6>ขั้นตอนที่ 1 เราจะส่งสถานะการทำงานเป็นดิจิตอลบิตของปั้มน้ำผ่านเว็บแอพพิเคชั่นไปยัง Realtime database ที่ Firebase</h6>
+    <br>
+    <img src="https://scontent.fbkk5-1.fna.fbcdn.net/v/t1.15752-9/187124136_3950863338284702_1576767260287421630_n.png?_nc_cat=109&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeG7Ox1HmaRKXeu2hItXHQ5Ty2vwhEs9XUHLa_CESz1dQelG6a6Hg_vk2SwzQ8uvFE6R41oeJw2Smp8Y74YHkYHE&_nc_ohc=CFzzO9BUapMAX-rHXhx&_nc_ht=scontent.fbkk5-1.fna&oh=9ed77e98f3632e434ae91c01f7f06b4a&oe=60C4F7AF" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <h6>ขั้นตอนที่ 2 ESP8266 (NodeMCU) จะรับค่าสถานะการทำงานจาก Realtime database ที่ Firebase</h6>
+    <br>
+    <img src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/186518732_137001525084226_1891876379872012396_n.png?_nc_cat=108&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeF1Pl4JYSLlx7AfoH8c4lrARvALH2V8AHBG8AsfZXwAcFHxKD5QOU-f-OCJFXERp_XdBW-vFMXiEQTMBwHkI3_J&_nc_ohc=zum2z_aE_rwAX_X5e99&_nc_ht=scontent.fbkk5-7.fna&oh=7634073189a946c8439cd67840d4d9f5&oe=60A24CE3" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <img src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/187053727_2971797353093229_7674974755616326056_n.png?_nc_cat=108&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeFQADo3ZOLIchr-06E2vdFG305kZviY2BXfTmRm-JjYFVKAvVRXZfeW4LTvgL2sNbmz0MoSR0ZBeJwSKC1Y7CLN&_nc_ohc=i3xTO0vyzjgAX9O0-Nh&_nc_ht=scontent.fbkk5-7.fna&oh=c31d05193ac9a864808009f727771173&oe=60C73D94" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <h6>สถานะปิด(0) สถานะเปิด(1)</h6>
+    <br>
+    <img src="https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.15752-9/187280832_332257398328829_6678420411319342960_n.png?_nc_cat=111&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeHeJrsS1KrvQB50cmsFpSkx4lQvj888HcniVC-PzzwdybRvIyxw4nhdX5CgdgyKmvocOUzxcQzrih5WaG-oJDgE&_nc_ohc=CLnAWkecOmcAX9IWBX7&_nc_ht=scontent.fbkk5-3.fna&oh=5951695a007aa085be454e436bfe974e&oe=60A23AE3" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <img src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/186515347_777839149587294_7350974315834789518_n.png?_nc_cat=108&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeG2H5pYss21PUapEmOs7hZvufCovb0cZoS58Ki9vRxmhGgJlT_JA0m7ndCCdu4UoFbJJZTxIZmpYHwiJdVCbT6b&_nc_ohc=ecJtB1YU9kAAX-G9B1Z&_nc_ht=scontent.fbkk5-7.fna&oh=2fb753e9f0e444039263c17b60e0ba44&oe=60A2268B" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <h6>ขั้นตอนที่ 3 สั่งการ Relay ตามค่าสถานะที่ได้รับมาจาก Realtime database สถานะปิด(0) น้ำจะไม่ไหล สถานะเปิด(1) น้าไหล</h6>
+    <br>
+    <img src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/187378922_486449576126624_7268420802928053219_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeFWQcOHksEDqnUc9QuklUk7pfRHwRcRSyCl9EfBFxFLIEBN4HAElOfuW-ItOuL6c7EpA003q8p6w61XZ5FxtLyh&_nc_ohc=xMtbMj7wtsEAX8XvjuC&_nc_oc=AQmpZ8XCgDSJIIs9IfEsv6Dj5LBtX0mvlAhJvy7TuYzYk41I_ZBz4BEV9RsWIYg8EuGKaX2OpSv1KVsJ1-Xf2tLs&_nc_ht=scontent.fbkk5-6.fna&oh=a5dc049fdad7be55b51b4eca04184e79&oe=60C7182E" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    <img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/186493246_166343705491739_3133526650516467724_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeHWU5kex6qwS_9kXHmrH1qkSGh-iaxa8ZlIaH6JrFrxmQXZ9fO_PTBKs9wJdOPYE9x0v7FHtuHo2ADHrDHywJmM&_nc_ohc=H9nS8CqsJtAAX9aw6qT&_nc_ht=scontent.fbkk5-5.fna&oh=24883a154459a17d065360ac67cf7dda&oe=60C8A129" style="width:50%; border:1px solid black;"/>
+    <br>
+    <br>
+    </div></center>
+        <script src="" async defer></script>
+    </body>
+</html>
