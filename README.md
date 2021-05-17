@@ -8,7 +8,7 @@ How it works?
 1. ทำการ clone git ลงใน PC
 2. ต่อวงจรบอร์ดให้เหมือนกับตัวอย่างที่แสดงในหน้า web ส่วน document
 3. นำไฟลฺ์ source code (.ino) ไปเตรียมรันใน software arduino
-4. สร้าง realtime database1 บน firebase ให้เชื่อมต่อกับวงจรและหน้า web control
+4. สร้าง realtime database บน firebase ให้เชื่อมต่อกับวงจรและหน้า web control
 5. เมื่อเชื่อมต่อได้ให้ไปหน้าเ web ในส่วน control เพื่อทำการควบคุมระบบ
 
 Equipment
